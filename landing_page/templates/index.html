@@ -1,0 +1,18 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Landing Page</title>
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/style.css')}}" />
+ 	<script type="text/javascript" src= "{{ url_for('static', filename='js/js_scripts.js')}}"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Welcome to the Landing Page Assignment</h1>
+		<p>This page is built to understand how Flask can work.</p>
+		<div id="nav">
+			<a href="/ninja">Ninja</a>
+			<a href="/dojos/new">Dojos</a>
+		</div>
+	</div>
+</body>
+</html>

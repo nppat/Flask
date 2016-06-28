@@ -1,0 +1,16 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ninjas</title>
+	<link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/style.css')}}" />
+ 	<script type="text/javascript" src= "{{ url_for('static', filename='js/js_scripts.js')}}"></script>
+</head>
+<body>
+	<h1>Ninjas!</h1>
+
+	{% for x in range(times): %}
+    	<p>{{ phrase }}</p>
+ 	{% endfor %} 
+
+</body>
+</html>
