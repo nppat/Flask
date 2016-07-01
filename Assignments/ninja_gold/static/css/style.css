@@ -42,3 +42,11 @@ button {
 	font-weight: bolder;
 	margin-top: 15px;
 }
+
+.green{
+		color: green;
+	}
+
+.red {
+		color: red;
+	}

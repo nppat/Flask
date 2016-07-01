@@ -13,7 +13,7 @@
 		<div id="middle_row">
 			<div id="farm">
 				<p>Farm</p>
-				<p>(earns 10-20 golds)</p>
+				<p>(earns 10-20 gold)</p>
 				<form action="/process_money" method="post">
 					<input type="hidden" name="action" value="hidden_farm" >
 					<button type="submit">Find Gold!</button>
@@ -21,7 +21,7 @@
 			</div>
 			<div id="cave">
 				<p>Cave</p>
-				<p>(earns 5-10 golds)</p>
+				<p>(earns 5-10 gold)</p>
 				<form action="/process_money" method="POST">
 					<input type="hidden" name="action" value="hidden_cave" >
 					<button type="submit">Find Gold!</button>
@@ -29,7 +29,7 @@
 			</div>
 			<div id="house">
 				<p>House</p>
-				<p>(earns 2-5 golds)</p>
+				<p>(earns 2-5 gold)</p>
 				<form action="/process_money" method="POST">
 					<input type="hidden" name="action" value="hidden_house" >
 					<button type="submit">Find Gold!</button>
@@ -37,7 +37,7 @@
 			</div>
 			<div id="casino">
 				<p>Casino</p>
-				<p>(earn/lose 0-50 golds)</p>
+				<p>(earn/lose 0-50 gold rollin' them dice)</p>
 				<form action="/process_money" method="POST">
 					<input type="hidden" name="action" value="hidden_casino" >
 					<button type="submit">Find Gold!</button>
@@ -46,7 +46,24 @@
 		</div>
 		<div id="bottom_row">
 			<p>Activites</p>
-			
+			<div>
+				{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+						<ul class=flashes>
+		    				{% for category, message in messages %}
+		    					{% if category == 'gold' %}
+		     						<p class="green">{{ message }}</p>
+		     					{% elif category == 'no_gold' %}
+		     						<p class="red">{{ message }}</p>
+		     					{% endif %}
+		   					{% endfor %}
+		    			</ul>
+		  			{% endif %}
+				{% endwith %} 
+			</div>
+			<form action='/reset'>
+				<button type="submit">Reset</button>
+			</form>
 		</div>
 	</div>
 </body>
