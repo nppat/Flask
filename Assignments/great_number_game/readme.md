@@ -5,11 +5,12 @@ and offer to play again.
 
 Front-end:
 - 1) Create index.html [x]
-- 2) Create <h1>, <p> [x]
+- 2) Create h1, p [x]
 - 3) Create input box to take user inupt [x]
 - 4) Create button to submit [x]
 - 5) Create hidden div to display a too low or too high [x]
-- 6) Create hidden div to display correct with correct number included in div, as well as a play again button <p> [x]
+- 6) Create hidden div to display correct with correct number included in div,
+		as well as a play again button p [x]
 
 Back-end:
 - 1) Create server.py file [x]
