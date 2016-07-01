@@ -1,0 +1,1 @@
+Old version of server.py stored in old directory.  Submitted assignment, then we went through the assignment in office hours and were shown a much simpler way of doing things, so I redid the assignment to reflect what I picked up in the lecture.
