@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Counter</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Counter</h1>
+		<p>{{ session['counter'] }} times</p>
+		<form action="/ninja" method="post">
+			<p><button type="submit" name="action" value="addTwo">+ 2</button></p>
+			<p><button type="submit" name="action" value="reset">Reset</button></p>
+		</form>
+	</div>
+</body>
+</html>

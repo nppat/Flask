@@ -7,10 +7,10 @@
 <body>
 	<h1>Submitted Info</h1>
 	<div>
-		<p>Name:  {{name}}</p>
-		<p>Location:  {{location}}</p>
-		<p>Favortie Language:  {{language}}</p>
-		<p>Comments:  {{comment}}</p>
+		<p>Name:  {{ session['name'] }}</p>
+		<p>Location:  {{ session['location'] }}</p>
+		<p>Favortie Language:  {{ session['language'] }}</p>
+		<p>Comments:  {{ session['comment'] }}</p>
 	</div>
 	<button><a href="/">Back</a></button>
 </body>

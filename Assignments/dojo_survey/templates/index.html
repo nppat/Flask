@@ -7,6 +7,13 @@
 </head>
 <body>
 	<div id="wrapper">
+		{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+      			{% for message in messages %}
+        			<p>{{message}}</p>
+    			{% endfor %}
+    		{% endif %}
+  		{% endwith %}
 		<form action="/result" method="post">
 			<label>Your Name:  </label><input type="text" name="name"><br>
 			<label>Dojo Location:  </label><select name="location">
@@ -25,7 +32,7 @@
 									<option value="mysql">MySQL</option>
 									<option value="html_css">HTML/CSS</option>
 								</select><br>
-			<label>Comment (optional):  </label><br>
+			<label>Comment:  </label><br>
 			<textarea name="comment"></textarea><br>
 			<input type="submit" value="Submit" >
 		</form>
