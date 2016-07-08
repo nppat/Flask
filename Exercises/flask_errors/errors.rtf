@@ -1,0 +1,16 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red47\green255\blue18;\red255\green255\blue255;\red0\green0\blue0;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb0 \CocoaLigature0 mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'r1'@'localhost' (using password: YES)\
+\cb3 \
+\cf4 fix:  make sure the correct user is set\
+\
+\cf2 \cb0 mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)\
+\cf4 \cb3 \
+fix:  make sure correct password is supplied to mysqlconnection.py file\
+\
+The config needs to be accurate in where it is needing to go.  A small error of spelling or not having the correct host address might not throw an error.}
