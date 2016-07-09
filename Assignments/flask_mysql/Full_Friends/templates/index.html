@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Full Friends</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!--Trying to make these pages responsive using bootstrap from now on. -->
+	<div class="container-fluid" id="wrapper">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h1>Friends</h1>
+				{% for friend in all_friends%}
+					<p>First Name: {{ friend['first_name']}}</p>
+					<p>Last Name: {{ friend['last_name']}}</p>
+					<p>Occupation: {{ friend['occupation']}}</p>
+					<p>Created At: {{ friend['created_at']}}</p>
+					<form action='/friends/{{ friend['id'] }}/edit' method='get'>
+						<input type="submit" value="Edit">
+					</form>
+					<form action='/friends/{{ friend['id'] }}/delete' method='post'>
+						<input type="submit" value="Delete">
+					</form>
+				{% endfor%}
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				    {% if messages %}
+				    	<ul class=flashes>
+					      	{% for category, message in messages %}
+					        	{% if category == 'error' %}
+					     			<p class="red">{{ message }}</p>
+					     		{% elif category == 'no_errors' %}
+					     			<p class="green">{{ message }}</p>
+					     		{% endif %}
+					      	{% endfor %}
+				      	</ul>
+				    {% endif %}
+				{% endwith %}
+				<p>
+					<form action="/friends" method="post">
+						<label>First Name:</label>
+						<input type='text' name="first_name" placeholder="First Name"><br>
+						<label>Last Name:</label>
+						<input type='text' name="last_name" placeholder="Last Name"><br>
+						<label>Occupation:</label>
+						<input type='text' name="occupation" placeholder="Occupation"><br>
+						<input type='submit' value="Add Friend" >
+					</form>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
