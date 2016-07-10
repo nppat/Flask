@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Email Validation with DB</title>
+	<title>Login | Registration</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,27 +13,39 @@
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<h1>Enter Your Email Address!</h1>
+				<h1>Login</h1>
+				<form action="/login" method="POST">
+					<label>Email Address: </label>
+					<input type="text" name="email">
+					<label>Password: </label>
+					<input type="password" name="password">
+					<button>Submit</button>
+				</form>
 				{% with messages = get_flashed_messages(with_categories=true) %}
 				    {% if messages %}
 				    	<ul class=flashes>
 					      	{% for category, message in messages %}
 					        	{% if category == 'error' %}
 					     			<p class="red">{{ message }}</p>
-					     		{% elif category == 'no_errors' %}
-					     			<p class="green">{{ message }}</p>
 					     		{% endif %}
 					      	{% endfor %}
 				      	</ul>
 				    {% endif %}
 				{% endwith %}
-				<form action="/email" method="post">
+				<h2>New User?  Register Here!</h2>
+				<form action="/register" method="POST">
+					<label>First Name: </label>
+					<input type="text" name="first_name">
+					<label>Last Name: </label>
+					<input type="text" name="last_name"><br>
 					<label>Email Address: </label>
-					<input type="text" name="email">
+					<input type="text" name="email"><br>
+					<label>Password: </label>
+					<input type="password" name="password"><br>
+					<label>Confirm Password: </label>
+					<input type="password" name="confirm_password"><br>
 					<button>Submit</button>
 				</form>
-				<h2>Email Addresses Entered</h2>
-				<p>{{ all_email }}</p>
 			</div>
 		</div>
 	</div>

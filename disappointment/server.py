@@ -21,4 +21,16 @@ def create():
     mysql.run_mysql_query(query)
     return redirect('/')
 
+@app.route('/update_friend/<friend_id>', methods=['POST'])
+def update(friend_id):
+    # UPDATE query
+    query = ("""UPDATE friends
+              SET first_name = %s
+              last_name = %s
+              occupation = %s
+              WHERE id = %s""" % (request.form['first_name'], request.form['last_name'], request.form['occupation'], friend_id)) # <-- Check out "Formatting Strings" in Python docs. Or don't. .format works just fine too.
+    # Run the query
+    mysql.run_mysql_query(query)
+    return redirect('/')
+
 app.run(debug=True)
