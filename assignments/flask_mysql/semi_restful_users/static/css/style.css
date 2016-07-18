@@ -1,0 +1,18 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}
+.green, .red {
+	font-weight: bolder;
+}
+.show_btn, .edit_btn, .delete_btn,
+#first_name, #last_name, #email {
+	margin-bottom: 1%;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Semi-Restful Users | Edit User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- Personal css file -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- Latest jQuery for Bootstrap use--> 
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<!-- Bootstrap -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- jQuery for regular use -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<!-- Trying to make these pages responsive using bootstrap from now on.  -->
+	<div class="container-fluid" id="wrapper">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h1>Edit User {{ user['id'] }}</h1>
+				<form action="/user/{{ user['id'] }}/update" method="post" id="edit_form">
+					<div class="form-group">
+						<label for="first_name">First Name: </label>
+						<input type="text" name="first_name" id="first_name" placeholder="First Name..." autofocus><br>
+						<label for="last_name">Last Name: </label>
+						<input type="text" name="last_name" id="last_name" placeholder="Last Name..."><br>
+						<label for="email">Email Address: </label>
+						<input type="text" name="email" id="email" placeholder="Email Address..."><br>
+						<button class="btn btn-primary update_btn" type="submit">Update</button>
+					</div>
+				</form>
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				    {% if messages %}
+				    	<ul class="flashes">
+					      	{% for category, message in messages %}
+					        	{% if category == 'error' %}
+					     			<p class="red">{{ message }}</p>
+					     		{% elif category == 'success' %}
+					     			<p class="green">{{ message }}</p>
+					     		{% endif %}
+					      	{% endfor %}
+				      	</ul>
+				    {% endif %}
+				{% endwith %}
+				<form action="/users/<id>" method="get">
+					<button class="btn btn-primary show_btn" type="submit">Show</button>
+				</form>
+				<form action='/back' method="get">
+					<button  class="btn btn-primary back_btn" type="submit">Back</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

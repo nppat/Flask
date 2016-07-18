@@ -1,0 +1,53 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Semi-Restful Users | Show {{ user['full_name']}}'s Details</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- Personal css file -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- Latest jQuery for Bootstrap use--> 
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<!-- Bootstrap -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- jQuery for regular use -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<!-- Trying to make these pages responsive using bootstrap from now on.  -->
+	<div class="container-fluid" id="wrapper">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div>
+					<h1>User ID: {{ user['id'] }}</h1>
+					<p>Full Name: {{ user['full_name'] }}</p>
+					<p>Email Address: {{ user['email'] }}</p>
+					<p>Created at: {{ user['created_at'] }}</p>
+				</div>
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				    {% if messages %}
+				    	<ul class="flashes">
+					      	{% for category, message in messages %}
+					        	{% if category == 'error' %}
+					     			<p class="red">{{ message }}</p>
+					     		{% elif category == 'success' %}
+					     			<p class="green">{{ message }}</p>
+					     		{% endif %}
+					      	{% endfor %}
+				      	</ul>
+				    {% endif %}
+				{% endwith %}
+				<form action="/users/{{ user['id'] }}/edit" method='get'>
+					<button class="btn btn-primary edit_btn" type="submit">Edit</button>
+				</form>
+				<form action="/users/{{ user['id'] }}/delete" method='post'>
+					<button class="btn btn-danger delete_btn" type="submit">Delete</button>
+				</form>
+				<form action='/back' method="get">
+					<button class="btn btn-primary back_btn" type="submit">Back</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
